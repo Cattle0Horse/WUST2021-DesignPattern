@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Client {
+    {static}+main(args:String[]): void
+}
+
+abstract class Order {
+    -description: String
+    -price: double
+
+    +getDescription(): String
+    +setDescription(description: String): void
+    +getPrice(): double
+    +setPrice(price: double): void
+    +{abstract}cost(): double
+}
+
+class Coffee extends Order {
+    +Coffee()
+    +cost(): double
+}
+
+abstract class Decorator extends Order {
+    #order: Order
+    +Decorator(order: Order)
+    +getDescription(): String
+}
+
+class Milk extends Decorator {
+    +Milk(order: Order)
+    +cost(): double
+}
+
+class Chocolate extends Decorator {
+    +Chocolate(order: Order)
+    +cost(): double
+}
+
+Order --o Decorator
+
+@enduml

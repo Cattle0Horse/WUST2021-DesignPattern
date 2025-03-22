@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Observer {
+    response(Object o):void
+}
+
+class Product {
+    +{static}NAME:String
+    +{static}PRICE:String
+    -name:String
+    -price:Double
+    -observerMap:Map<String, List<Observer> >
+    +Product(name:String, price:double)
+    +setName(name:String):void
+    +setPrice(price:double):void
+    -notifyObserver(key:String):void
+    +addObserver(key:String, observer:Observer):void
+    +deleteObserver(key:String, observer:Observer):boolean
+}
+
+Product o-- Observer
+
+@enduml

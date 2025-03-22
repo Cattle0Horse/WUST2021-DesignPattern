@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class AppConfig {
+    -{static}count:int
+    -{static}instance:AppConfig
+    -parameter:String
+    -AppConfig()
+    +{static}getInstance():AppConfig
+    +getParameter():String
+    +setParameter(content:String):void
+}
+
+AppConfig <--o AppConfig
+
+@enduml

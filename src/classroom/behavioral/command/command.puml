@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Invoker {
+    -command:Command
+    +setCommand(Command):void
+    +call():void
+}
+
+interface Command {
+    +{abstract}execute()
+}
+
+Invoker o-- Command
+
+class ConcreteCommand {
+    -receiver:Receiver
+    +ConcreteCommand(Receiver)
+    +execute():void
+}
+
+ConcreteCommand ..|> Command
+
+class Receiver {
+    +action():void
+}
+
+ConcreteCommand *-- Receiver
+
+
+@enduml

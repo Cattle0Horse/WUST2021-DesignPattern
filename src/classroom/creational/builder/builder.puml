@@ -1,0 +1,55 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Pizza {
+    -taste:String
+}
+
+'套餐
+class Combo {
+    -pizza:Pizza
+    -drink:String
+    -toy:String
+    +getPizza():Pizza
+    +setPizza(Pizza):void
+    +getDrink():String
+    +setDrink(String):void
+    +getToy():String
+    +setToy(String):void
+}
+
+'套餐构建者
+abstract class ComboBuilder {
+    combo:Combo
+    +{abstract}buildPizza():void
+    +{abstract}buildDrink():void
+    +{abstract}buildToy():void
+    +getCombo():Combo
+}
+
+class AComboBuilder {
+    +buildPizza():void
+    +buildDrink():void
+    +buildToy():void
+}
+
+class BComboBuilder {
+    +buildPizza():void
+    +buildDrink():void
+    +buildToy():void
+}
+
+'指挥者
+class Waiter {
+    -builder:ComboBuilder
+    +setBuilder(ComboBuilder):void
+    +construct():Combo
+}
+
+Waiter o-- ComboBuilder
+Combo o-- Pizza
+ComboBuilder ..> Combo
+AComboBuilder --|>ComboBuilder
+BComboBuilder --|>ComboBuilder
+
+@enduml

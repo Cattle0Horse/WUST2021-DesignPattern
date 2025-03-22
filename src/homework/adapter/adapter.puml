@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface View {
+    +draw():void
+}
+
+class Rectangle implements View {
+    +draw():void
+}
+
+class Line implements View {
+    +draw():void
+}
+
+class Circle implements View {
+    +draw():void
+}
+
+class Angle {
+    +drawAngle():void
+}
+
+class AngleAdapter implements View {
+    -angle:Angle
+    +AngleAdapter(angle:Angle)
+    +draw():void
+}
+
+AngleAdapter o-- Angle
+
+@enduml

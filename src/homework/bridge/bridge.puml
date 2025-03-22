@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Taste {
+    +display():String
+}
+
+class Sugar implements Taste {
+    +display():String
+}
+
+class Milk implements Taste {
+    +display():String
+}
+
+class Lemon implements Taste {
+    +display():String
+}
+
+abstract class Coffee {
+    Taste taste;
+    +display():String
+    +setTaste(taste:Taste):void
+}
+
+class SmallCoffee extends Coffee {
+    +display():String
+}
+
+class MediumCoffee extends Coffee {
+    +display():String
+}
+
+class JorumCoffee extends Coffee {
+    +display():String
+}
+
+Coffee o-- Taste
+
+@enduml

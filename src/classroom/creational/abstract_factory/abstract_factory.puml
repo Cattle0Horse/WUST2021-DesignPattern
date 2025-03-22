@@ -1,0 +1,78 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Button {
+    +display():void
+}
+
+interface TextField {
+    +display():void
+}
+
+interface ComboBox {
+    +display():void
+}
+
+class SpringButton {
+    +display:void
+}
+
+class SummerButton {
+    +display():void
+}
+
+class SpringTextFiled {
+    +display:void
+}
+
+class SummerTextFiled {
+    +display:void
+}
+
+class SpringComboBox {
+    +display:void
+}
+
+class SummerComboBox {
+    +display:void
+}
+
+interface SkinFactory {
+    +createButton():Button
+    +createTextFiled():TextFiled
+    +createComboBox():ComboBox
+}
+
+class SpringSkinFactory {
+    +createButton() :Button
+    +createTextFiled() :TextField
+    +createComboBox() :ComboBox
+}
+
+class SummerSkinFactory {
+    +createButton() :Button
+    +createTextFiled() :TextField
+    +createComboBox() :ComboBox
+}
+
+SpringSkinFactory ..|> SkinFactory
+SummerSkinFactory ..|> SkinFactory
+
+SpringButton ..|> Button
+SpringTextFiled ..|> TextField
+SpringComboBox ..|>ComboBox
+
+SummerButton ..|> Button
+SummerTextFiled ..|> TextField
+SummerComboBox ..|> ComboBox
+
+SpringSkinFactory ..> SpringButton
+SpringSkinFactory ..> SpringTextFiled
+SpringSkinFactory ..> SpringComboBox
+
+SummerSkinFactory ..> SummerButton
+SummerSkinFactory ..> SummerTextFiled
+SummerSkinFactory ..> SummerComboBox
+
+
+@enduml

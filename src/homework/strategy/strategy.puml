@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Book {
+    -name:String
+    -price:Double
+    -discount:Discount
+    +Book(name:String, price:Double, discount:Discount)
+    +getName():String
+    +void setPrice(price:Double)
+    +getPrice():Double
+    +setDiscount(discount:Discount):void
+    +getDiscountedPrice():double
+}
+
+interface Discount {
+    +compute(Double price):double
+}
+
+class ComputerDiscount implements Discount {
+    +compute(Double price):double
+}
+
+class EnglishDiscount implements Discount {
+    +compute(Double price):double
+}
+
+Book *-- Discount
+@enduml

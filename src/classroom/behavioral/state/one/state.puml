@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class CState {
+    +flyMiles:int
+    +travel(int, CFrequentFlyer):double
+}
+
+class CNoCustomer extends CState {
+    +travel(int, CFrequentFlyer):double
+}
+
+class CBasic extends CState {
+    +travel(int, CFrequentFlyer):double
+}
+
+class CGold extends CState {
+    +travel(int, CFrequentFlyer):double
+}
+
+class CSilver extends CState {
+    +travel(int, CFrequentFlyer):double
+}
+
+class CFrequentFlyer {
+    -state:CState
+    -flyMiles:double
+    +CFrequentFlyer()
+    +setState(CState):void
+    +travel(int):void
+}
+
+CFrequentFlyer o-- CState
+CState ..> CFrequentFlyer
+
+@enduml

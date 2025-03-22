@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Drawing {
+    +drawLine():void
+    +drawCircle():void
+}
+
+class DP1 {
+    +{static}drawALine():void
+    +{static}drawACircle():void
+}
+
+class DP2 {
+    +drawALine():void
+    +drawACircle():void
+}
+
+class DrawProgram1 implements Drawing {
+    +drawLine():void
+    +drawCircle():void
+}
+
+class DrawProgram2 implements Drawing {
+    +drawLine():void
+    +drawCircle():void
+}
+
+DrawProgram1 ..> DP1
+DrawProgram2 ..> DP2
+
+abstract Shape {
+    -drawing:Drawing
+    +Shape(Drawing)
+    +drawLine():void
+    +drawCircle():void
+    +{abstract}draw():void
+}
+
+class Line implements Shape {
+    -x1:double
+    -y1:double
+    -x2:double
+    -y1:double
+    +draw():void
+}
+class Circle implements Shape {
+    -x:double
+    -y:double
+    -r:double
+    +draw():void
+}
+
+Shape o-- Drawing
+
+@enduml

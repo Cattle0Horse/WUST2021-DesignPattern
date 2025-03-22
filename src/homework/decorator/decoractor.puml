@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Component {
+    +operation():void
+}
+
+class Sheep implements Component {
+    +operation():void
+}
+
+abstract class Buff implements Component {
+    #component:Component
+    +setComponent(component:Component):void
+    +{abstract}operation():void
+}
+
+class GreenBuff extends Buff {
+    +operation():void
+}
+
+class RedBuff extends Buff {
+    +operation():void
+}
+
+class YellowBuff extends Buff {
+    +operation():void
+}
+
+Buff o-- Component
+
+@enduml

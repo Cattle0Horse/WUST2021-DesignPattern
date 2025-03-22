@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Shape {
+    +{abstract}display():void
+}
+
+class Point {
+    +display():void
+}
+Point ..|> Shape
+
+class Line {
+    +display():void
+}
+Line ..|> Shape
+
+class Square {
+    +display():void
+}
+Square ..|> Shape
+
+class XCircle {
+    +displayIt():void
+}
+class CircleAdapter {
+    +display():void
+}
+CircleAdapter --|> XCircle
+CircleAdapter ..|> Shape
+
+
+@enduml

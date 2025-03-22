@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Hamburg {
+    +{abstract}steam():void
+}
+
+class McDonaldsHamburg extends Hamburg {
+    +steam():void
+}
+
+class KFCHamburg extends Hamburg {
+    +steam():void
+}
+
+abstract class Cola {
+    +{abstract}bubble():void
+}
+
+class McDonaldsCola extends Cola {
+    +bubble():void
+}
+
+class KFCCola extends Cola {
+    +bubble():void
+}
+
+interface IFactory {
+    +buildHamburg():Hamburg
+    +buildCola():Cola
+}
+
+class McDonaldsFactory implements IFactory {
+    +buildHamburg():Hamburg
+    +buildCola():Cola
+}
+
+class KFCFactory implements IFactory {
+    +buildHamburg():Hamburg
+    +buildCola():Cola
+}
+
+McDonaldsFactory ..> McDonaldsHamburg
+McDonaldsFactory ..> McDonaldsCola
+
+KFCFactory ..> KFCHamburg
+KFCFactory ..> KFCCola
+
+@enduml

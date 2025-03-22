@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Chart {
+    +{abstract}display():void
+}
+
+class HistogramChart implements Chart{
+    +HistogramChart()
+    +display():void
+}
+
+class LineChart implements Chart {
+    +LineChart()
+    +display():void
+}
+
+class PieChart implements Chart {
+    +PieChart()
+    +display():void
+}
+
+interface ChartFactory {
+    +{abstract}getChart():Chart
+}
+
+class HistogramChartFactory{
+    +getChart():Chart
+}
+
+class LineChartFactory{
+    +getChart():Chart
+}
+
+class PieChartFactory{
+    +getChart():Chart
+}
+
+PieChart <.. PieChartFactory
+LineChart <.. LineChartFactory
+HistogramChart <.. HistogramChartFactory
+
+HistogramChartFactory ..|> ChartFactory
+LineChartFactory ..|> ChartFactory
+PieChartFactory ..|> ChartFactory
+
+@enduml

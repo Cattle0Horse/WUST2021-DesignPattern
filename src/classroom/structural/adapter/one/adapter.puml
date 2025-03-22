@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Clint {
+    main(args:String[]): void
+}
+
+interface Cat {
+    catchMouse(): void
+}
+interface Dog {
+    gnawBone(): void
+}
+
+class ConcreteCat implements Cat{
+    catchMouse(): void
+}
+
+class ConcreteDog implements Dog{
+    gnawBone(): void
+}
+
+class Adapter implements Cat, Dog{
+    cat:Cat
+    dog:Dog
+
+    setCat(cat:Cat): void
+    setDog(dog:Dog): void
+
+}
+
+Adapter o-- Cat
+Adapter o-- Dog
+
+Clint -- Adapter
+
+@enduml

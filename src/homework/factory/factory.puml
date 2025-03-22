@@ -1,0 +1,60 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface ILaptop {
+    +info():String
+}
+
+interface IFactory {
+    +build():ILaptop
+}
+
+class LenovoLaptop {
+    +info():String
+}
+
+class LenovoFactory {
+    +build():ILaptop
+}
+
+
+class HPLaptop {
+    +info():String
+}
+
+class HPFactory{
+    +build():ILaptop
+}
+
+class AcerLaptop {
+    +info():String
+}
+
+class AcerFactory{
+    +build():ILaptop
+}
+
+class DellLaptop {
+    +info():String
+}
+
+class DellFactory {
+    +build():ILaptop
+}
+
+DellLaptop ..|> ILaptop
+AcerLaptop ..|> ILaptop
+HPLaptop ..|> ILaptop
+LenovoLaptop ..|> ILaptop
+
+DellFactory ..|> IFactory
+AcerFactory ..|> IFactory
+HPFactory ..|> IFactory
+LenovoFactory ..|> IFactory
+
+LenovoFactory ..> LenovoLaptop
+HPFactory ..> HPLaptop
+AcerFactory ..> AcerLaptop
+DellFactory ..> DellLaptop
+
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract Graphic {
+    draw():void
+}
+
+class Circle extends Graphic {
+    draw():void
+}
+
+class Line extends Graphic {
+    draw():void
+}
+
+class Rectangle extends Graphic {
+    draw():void
+}
+
+class Picture extends Graphic {
+    graphics : ArrayList<Graphic>
+    add():void
+    remove:void
+    getGraphics():ArrayList<Graphic>
+    draw():void
+}
+
+Picture o-- Graphic
+
+@enduml

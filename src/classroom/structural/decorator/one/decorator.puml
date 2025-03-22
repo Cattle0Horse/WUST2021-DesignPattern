@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Client {
+    {static}+main(args:String[]): void
+}
+
+abstract Component {
+    {abstract} +display(): String
+}
+
+class Window extends Component {
+    +display(): String
+}
+
+class TextBox extends Component {
+    +display(): String
+}
+
+class ListBox extends Component {
+    +display(): String
+}
+
+abstract class EnhancedDecorator extends Component {
+    #component: Component
+    +EnhancedDecorator(component: Component)
+    +getComponent(): Component
+}
+
+EnhancedDecorator o-- Component
+
+class ScrollBarDecorator extends EnhancedDecorator {
+    +ScrollBarDecorator(component: Component)
+    +display(): String
+}
+
+class BlackBorderDecorator extends EnhancedDecorator {
+    +BlackBorderDecorator(component: Component)
+    +display(): String
+}
+
+class ScrollBarAndBlackBorderDecorator extends EnhancedDecorator {
+    +ScrollBarAndBlackBorderDecorator((component: Component)
+    +display(): String
+}
+@enduml

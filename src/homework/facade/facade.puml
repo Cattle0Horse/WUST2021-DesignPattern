@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Switch {
+    ~status:boolean;
+
+    +on():void
+
+    +off():void
+}
+
+class Alarm {
+}
+
+class Camera {
+}
+
+class Light {
+}
+
+class Sensor {
+}
+
+class Police {
+    -alarm:Alarm
+    -camera:Camera
+    -light:Light
+    -sensor:Sensor
+    +Police()
+    +turnOnAll():void
+    +turnOffAll():void
+}
+
+Alarm --|> Switch
+Camera --|> Switch
+Light --|> Switch
+Sensor --|> Switch
+
+Police *-- Alarm
+Police *-- Camera
+Police *-- Light
+Police *-- Sensor
+
+@enduml
